@@ -1,0 +1,26 @@
+From 7da1be75d01dd64c93a1e89d06671f8ccd6a0977 Mon Sep 17 00:00:00 2001
+From: jacob <jacob@lpt-02.boones.net>
+Date: Fri, 9 Oct 2026 08:44:15 -0400
+Subject: [PATCH] Added '-D__BSD_VISIBLE' to CPPFLAGS to allow compilation on
+ FreeBSD
+
+---
+ config.mk | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/config.mk b/config.mk
+index db25e8a..f1a4e67 100644
+--- a/config.mk
++++ b/config.mk
+@@ -8,7 +8,7 @@ TERMINFO := ${DESTDIR}${PREFIX}/share/terminfo
+ 
+ INCS = -I.
+ LIBS = -lc -lutil -lncursesw
+-CPPFLAGS = -D_POSIX_C_SOURCE=200809L -D_XOPEN_SOURCE=700 -D_XOPEN_SOURCE_EXTENDED
++CPPFLAGS = -D_POSIX_C_SOURCE=200809L -D_XOPEN_SOURCE=700 -D_XOPEN_SOURCE_EXTENDED -D__BSD_VISIBLE
+ CFLAGS += -std=c99 ${INCS} -DNDEBUG ${CPPFLAGS}
+ 
+ CC ?= cc
+-- 
+2.56.0
+
